@@ -1,9 +1,10 @@
 package attractions;
 
+import behaviours.ISecurity;
 import behaviours.ITicketed;
 import people.Visitor;
 
-public class RollerCoaster  extends Attraction implements ITicketed {
+public class RollerCoaster  extends Attraction implements ITicketed, ISecurity {
 
     private double price;
 
@@ -13,7 +14,7 @@ public class RollerCoaster  extends Attraction implements ITicketed {
     }
 
     @Override
-    public double defaultPrice(Visitor visitor) {
+    public double defaultPrice() {
         return this.price;
     }
 
@@ -24,5 +25,13 @@ public class RollerCoaster  extends Attraction implements ITicketed {
         } else {
             return this.price * 2;
         }
+    }
+
+    @Override
+    public boolean isAllowedTo(Visitor visitor) {
+        if (visitor.getAge() >= 12 && visitor.getHeight() >= 145) {
+            return true;
+        } else return false;
+
     }
 }

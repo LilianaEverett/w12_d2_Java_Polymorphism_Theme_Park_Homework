@@ -5,6 +5,7 @@ import org.junit.Test;
 import people.Visitor;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RollercoasterTest {
 
@@ -35,11 +36,16 @@ public class RollercoasterTest {
 
     @Test
     public void hasDefaultPrice() {
-        assertEquals(8.40, rollerCoaster.defaultPrice(visitor), 0.01);
+        assertEquals(8.40, rollerCoaster.defaultPrice(), 0.01);
     }
 
     @Test
     public void hasPricePriceForTallPeople() {
         assertEquals(16.80, rollerCoaster.priceFor(visitor), 0.01);
+    }
+
+    @Test
+    public void isAllowedToGoOnRollercoaster() {
+        assertTrue(rollerCoaster.isAllowedTo(visitor));
     }
 }
