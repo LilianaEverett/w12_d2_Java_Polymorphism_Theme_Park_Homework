@@ -5,7 +5,7 @@ import behaviours.IReviewed;
 public abstract class Attraction implements IReviewed {
     private String name;
     private int rating;
-    private int visitCount;
+    public int visitCount;
 
     public Attraction(String name, int rating) {
         this.name = name;

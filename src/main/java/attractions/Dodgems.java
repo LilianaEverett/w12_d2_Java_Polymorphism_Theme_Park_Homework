@@ -1,8 +1,9 @@
 package attractions;
 
+import behaviours.IReviewed;
 import people.Visitor;
 
-public class Dodgems extends Attraction {
+public class Dodgems extends Attraction implements IReviewed {
 
     private double price;
 
